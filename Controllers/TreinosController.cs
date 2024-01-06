@@ -64,5 +64,21 @@ namespace HealthBreath.Controllers.TreinosController
 
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoverTreino(int id)
+        {
+            var treino = _context.Treinos.Find(id);
+
+            if(treino == null)
+            {
+                return NotFound();
+            }
+
+            _context.Treinos.Remove(treino);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
