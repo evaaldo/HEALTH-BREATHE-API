@@ -49,5 +49,20 @@ namespace HealthBreath.Controllers.TreinosController
 
             return Ok(treino);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult AlterarTreino(int id, Treino treino)
+        {
+            var treinoBanco = _context.Treinos.Find(id);
+
+            treinoBanco.Exercicios = treino.Exercicios;
+            treinoBanco.DiaSemana = treino.DiaSemana;
+            treinoBanco.Musculo = treino.Musculo;
+
+            _context.Treinos.Update(treinoBanco);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
