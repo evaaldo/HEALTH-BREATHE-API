@@ -1,4 +1,5 @@
 using HealthBreath.Context.BancoContext;
+using HealthBreath.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthBreath.Controllers.TreinosController
@@ -25,6 +26,15 @@ namespace HealthBreath.Controllers.TreinosController
             }
 
             return Ok(treinos);
+        }
+
+        [HttpPost]
+        public IActionResult AdicionarTreino(Treino treino)
+        {
+            _context.Treinos.Add(treino);
+            _context.SaveChanges();
+
+            return Ok(treino);
         }
     }
 }
