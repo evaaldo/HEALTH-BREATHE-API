@@ -13,5 +13,18 @@ namespace HealthBreath.Controllers.TreinosController
         {
             _context = context;
         }
+
+        [HttpGet]
+        public IActionResult ExibirTreinos()
+        {
+            var treinos = _context.Treinos.ToList();
+
+            if(treinos == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(treinos);
+        }
     }
 }
