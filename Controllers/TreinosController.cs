@@ -28,6 +28,19 @@ namespace HealthBreath.Controllers.TreinosController
             return Ok(treinos);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult ExibirTreinoPorId(int id)
+        {
+            var treino = _context.Treinos.Find(id);
+
+            if(treino == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(treino);
+        }
+
         [HttpPost]
         public IActionResult AdicionarTreino(Treino treino)
         {
