@@ -29,26 +29,29 @@ namespace HealthBreath.Controllers.DietasController
         }
 
         [HttpGet]
-        public IActionResult ExibirDietaPorRefeicao(string refeicao)
+        public IActionResult ExibirDietaPorHorario(string horario)
         {
-            var refeicaoBanco = _context.Dietas.Find(refeicao);
+            var horarioBanco = _context.Dietas.Find(horario);
 
-            if(refeicaoBanco == null)
+            if(horarioBanco == null)
             {
                 return NotFound();
             }
 
-            return Ok(refeicaoBanco);
+            return Ok(horarioBanco);
         }
 
         [HttpPost]
-        public IActionResult AdicionarRefeicao(Dieta dieta)
+        public IActionResult AdicionarRefeicao(Dieta refeicao)
         {
-            _context.Dietas.Add(dieta);
+            _context.Dietas.Add(refeicao);
             _context.SaveChanges();
 
             Console.WriteLine("Refeição adicionada com sucesso!");
             return NoContent();
         }
+
+        [HttpPut]
+        public IActionResult AlterarRefeicao()
     }
 }
