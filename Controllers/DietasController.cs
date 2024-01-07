@@ -1,4 +1,5 @@
 using HealthBreath.Context.BancoContext;
+using HealthBreath.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthBreath.Controllers.DietasController
@@ -38,6 +39,16 @@ namespace HealthBreath.Controllers.DietasController
             }
 
             return Ok(refeicaoBanco);
+        }
+
+        [HttpPost]
+        public IActionResult AdicionarRefeicao(Dieta dieta)
+        {
+            _context.Dietas.Add(dieta);
+            _context.SaveChanges();
+
+            Console.WriteLine("Refeição adicionada com sucesso!");
+            return NoContent();
         }
     }
 }
