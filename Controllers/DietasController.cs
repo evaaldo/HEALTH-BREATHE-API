@@ -69,5 +69,21 @@ namespace HealthBreath.Controllers.DietasController
 
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoverRefeicao(int id)
+        {   
+            var refeicao = _context.Dietas.Find(id);
+
+            if(refeicao == null)
+            {
+                return NotFound();
+            }
+
+            _context.Dietas.Remove(refeicao);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
