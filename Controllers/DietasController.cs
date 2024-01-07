@@ -13,5 +13,18 @@ namespace HealthBreath.Controllers.DietasController
         {
             _context = context;
         }
+
+        [HttpGet]
+        public IActionResult ExibirDietas()
+        {
+            var dietas = _context.Dietas.ToList();
+
+            if(dietas == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(dietas);
+        }
     }
 }
