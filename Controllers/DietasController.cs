@@ -26,5 +26,18 @@ namespace HealthBreath.Controllers.DietasController
 
             return Ok(dietas);
         }
+
+        [HttpGet]
+        public IActionResult ExibirDietaPorRefeicao(string refeicao)
+        {
+            var refeicaoBanco = _context.Dietas.Find(refeicao);
+
+            if(refeicaoBanco == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(refeicaoBanco);
+        }
     }
 }
