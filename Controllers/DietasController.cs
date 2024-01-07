@@ -51,7 +51,23 @@ namespace HealthBreath.Controllers.DietasController
             return NoContent();
         }
 
-        [HttpPut]
-        public IActionResult AlterarRefeicao()
+        [HttpPut("{id}")]
+        public IActionResult AlterarRefeicao(int id, Dieta refeicao)
+        {
+            var refeicaoBanco = _context.Dietas.Find(id);
+
+            if(refeicaoBanco == null)
+            {
+                return NotFound();
+            }
+
+            refeicaoBanco.Refeicao = refeicao.Refeicao;
+            refeicaoBanco.Horario = refeicao.Horario;
+            
+            _context.Dietas.Update(refeicaoBanco);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
