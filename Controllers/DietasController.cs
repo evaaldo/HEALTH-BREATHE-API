@@ -47,7 +47,7 @@ namespace HealthBreath.Controllers.DietasController
             _context.Dietas.Add(refeicao);
             _context.SaveChanges();
 
-            Console.WriteLine("Refeição adicionada com sucesso!");
+            Console.WriteLine($"Refeição {refeicao.Refeicao} adicionada com sucesso!");
             return NoContent();
         }
 
@@ -67,6 +67,7 @@ namespace HealthBreath.Controllers.DietasController
             _context.Dietas.Update(refeicaoBanco);
             _context.SaveChanges();
 
+            Console.WriteLine($"Refeição {refeicaoBanco.Refeicao} alterada com sucesso!");
             return NoContent();
         }
 
@@ -83,6 +84,7 @@ namespace HealthBreath.Controllers.DietasController
             _context.Dietas.Remove(refeicao);
             _context.SaveChanges();
 
+            Console.WriteLine($"Refeição {refeicao.Refeicao} removida com sucesso!");
             return NoContent();
         }
     }
