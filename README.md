@@ -9,4 +9,4 @@
 <p>Foi feito com o objetivo de auxiliar pessoas em manter a disciplina e organização na hora de definir o que pretende comer e treinar diariamente, estando sempre próximo de suas anotações de maneira prática, simples e elegante. Por agora, existe apenas a API.</p>
 
 <h2>Como acessar?</h2>
-<p>Por ser um processo que depende de nuvens pagas para hospedagem, infelizmente não foi possível hospedar para acesso. Em breve esse projeto terá uma versão em Node com fácil acesso para usuário comum.</p>
+<p>Por ser um processo que depende de nuvens pagas para hospedagem, infelizmente não foi possível hospedar para acesso. Em breve esse projeto terá uma versão em Node com fácil acesso para usuário comum e também com uma interface para client side.</p>
